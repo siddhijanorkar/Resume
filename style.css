@@ -1,0 +1,584 @@
+/* ==================================================
+   COLOR SYSTEM & ROOT VARIABLES
+   ================================================== */
+:root {
+    --navy: #24384D;
+    --sidebar: #F1F4F6;
+    --text: #202830;
+    --muted: #5F6872;
+    --white: #FFFFFF;
+    --border: #24384D;
+    --border-light: #DCE3E8;
+    --bg-page: #EAEFF2;
+}
+
+/* ==================================================
+   BASE & RESET
+   ================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background-color: var(--bg-page);
+    line-height: 1.58;
+    margin: 0;
+    padding: 24px 0;
+}
+
+/* ==================================================
+   A4 RESUME CONTAINER
+   ================================================== */
+.resume {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ==================================================
+   HEADER
+   ================================================== */
+.resume-header {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 30px 32px 26px 32px;
+    text-align: center;
+    width: 100%;
+}
+
+.candidate-name {
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: 3.5px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+}
+
+.candidate-subtitle {
+    font-size: 15.5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #D6E0E9;
+    letter-spacing: 2px;
+    line-height: 1.25;
+}
+
+/* ==================================================
+   RESUME BODY (TWO-COLUMN DESKTOP)
+   ================================================== */
+.resume-body {
+    display: grid;
+    grid-template-columns: 70mm 140mm;
+    flex: 1;
+}
+
+/* ==================================================
+   LEFT SIDEBAR
+   ================================================== */
+.sidebar {
+    background-color: var(--sidebar);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid var(--border-light);
+}
+
+/* Profile Photo & Clean CSS Placeholder */
+.profile-photo-wrapper {
+    width: 124px;
+    height: 124px;
+    margin: 0 auto 6px auto;
+    border-radius: 50%;
+    border: 2.5px solid var(--navy);
+    background-color: #DCE3E9;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Clean fallback avatar silhouette */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2324384D'%3E%3Cpath d='M50 48a18 18 0 1 0 0-36 18 18 0 0 0 0 36zm0 10c-18.7 0-34 11.2-34 25v5h68v-5c0-13.8-15.3-25-34-25z' opacity='0.75'/%3E%3C/svg%3E");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 82% auto;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+/* Sidebar Section Headers */
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--navy);
+    letter-spacing: 1px;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid var(--border);
+}
+
+/* Contact List */
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.contact-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+}
+
+.contact-link,
+.contact-text {
+    font-size: 12px;
+    color: var(--navy);
+    line-height: 1.4;
+    word-break: break-word;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Skills & Hobbies Lists */
+.skills-list {
+    list-style-type: disc;
+    padding-left: 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5px;
+}
+
+.skills-list li {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.42;
+}
+
+/* ==================================================
+   RIGHT MAIN CONTENT
+   ================================================== */
+.main-content {
+    background-color: var(--white);
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+/* Section Headings */
+.section-title {
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--navy);
+    letter-spacing: 1.2px;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid var(--border);
+}
+
+/* Career Objective */
+.objective-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+    text-align: justify;
+}
+
+/* Academic Qualification */
+.education-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.degree-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.education-date {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.institution-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.academic-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 3px;
+}
+
+.coursework-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+/* Projects */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-entry {
+    margin-bottom: 11px;
+}
+
+.project-entry:last-child {
+    margin-bottom: 0;
+}
+
+.project-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+    line-height: 1.3;
+}
+
+.project-desc {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 3px;
+    text-align: justify;
+}
+
+.project-tech {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.project-tech strong {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+/* Work Experience */
+.experience-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.experience-status {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+}
+
+.experience-desc {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--text);
+}
+
+/* Personal Details */
+.personal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px 24px;
+}
+
+.personal-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.personal-label {
+    width: 105px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.personal-value {
+    font-size: 12.5px;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ==================================================
+   RESPONSIVE DESIGN (SCREENS <= 768px)
+   ================================================== */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+        background-color: var(--white);
+    }
+
+    .resume {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .resume-header {
+        padding: 26px 18px 22px 18px;
+    }
+
+    .candidate-name {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .candidate-subtitle {
+        font-size: 13px;
+        letter-spacing: 1.2px;
+    }
+
+    /* Flatten into single column with precise specified order */
+    .resume-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar,
+    .main-content {
+        display: contents;
+    }
+
+    /* Mobile Section Order:
+       1. Header (in header tag)
+       2. Photo
+       3. Contact
+       4. Career Objective
+       5. Academic Qualification
+       6. Projects
+       7. Technical Skills
+       8. Soft Skills
+       9. Work Experience
+       10. Hobbies
+       11. Personal Details
+    */
+    .profile-photo-wrapper {
+        order: 1;
+        margin: 24px auto 8px auto;
+    }
+
+    .contact-section {
+        order: 2;
+        padding: 16px 20px;
+        background-color: var(--sidebar);
+    }
+
+    .objective-section {
+        order: 3;
+        padding: 18px 20px;
+        background-color: var(--white);
+    }
+
+    .education-section {
+        order: 4;
+        padding: 18px 20px;
+        background-color: var(--white);
+    }
+
+    .projects-section {
+        order: 5;
+        padding: 18px 20px;
+        background-color: var(--white);
+    }
+
+    .technical-skills-section {
+        order: 6;
+        padding: 18px 20px;
+        background-color: var(--sidebar);
+    }
+
+    .soft-skills-section {
+        order: 7;
+        padding: 18px 20px;
+        background-color: var(--sidebar);
+    }
+
+    .experience-section {
+        order: 8;
+        padding: 18px 20px;
+        background-color: var(--white);
+    }
+
+    .hobbies-section {
+        order: 9;
+        padding: 18px 20px;
+        background-color: var(--sidebar);
+    }
+
+    .personal-section {
+        order: 10;
+        padding: 18px 20px 30px 20px;
+        background-color: var(--white);
+    }
+
+    .sidebar-title,
+    .section-title {
+        font-size: 18px;
+    }
+
+    .personal-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .personal-row {
+        gap: 12px;
+    }
+
+    .personal-label {
+        width: 110px;
+    }
+}
+
+/* ==================================================
+   PRINT DESIGN (A4 ACCURATE)
+   ================================================== */
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    html, body {
+        background-color: var(--white) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .resume {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
+
+    .resume-header {
+        background-color: var(--navy) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .resume-body {
+        display: grid !important;
+        grid-template-columns: 70mm 140mm !important;
+        min-height: calc(297mm - 38mm) !important;
+    }
+
+    .sidebar {
+        display: flex !important;
+        flex-direction: column !important;
+        background-color: var(--sidebar) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .main-content {
+        display: flex !important;
+        flex-direction: column !important;
+        background-color: var(--white) !important;
+    }
+
+    /* Reset order properties for print */
+    .profile-photo-wrapper,
+    .contact-section,
+    .objective-section,
+    .education-section,
+    .projects-section,
+    .technical-skills-section,
+    .soft-skills-section,
+    .experience-section,
+    .hobbies-section,
+    .personal-section {
+        order: initial !important;
+        padding: initial !important;
+        background-color: transparent !important;
+    }
+
+    .sidebar > * {
+        padding: 0 !important;
+    }
+
+    .main-content > * {
+        padding: 0 !important;
+    }
+
+    .sidebar {
+        padding: 24px 20px !important;
+    }
+
+    .main-content {
+        padding: 24px 28px !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+}
