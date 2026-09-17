@@ -358,134 +358,357 @@ body {
 }
 
 /* ==================================================
-   RESPONSIVE DESIGN (SCREENS <= 768px)
+   RESPONSIVE DESIGN (PRESERVE EXACT A4 2-COLUMN RESUME ON MOBILE)
    ================================================== */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 860px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
     body {
-        padding: 0;
-        background-color: var(--white);
+        padding: 12px 6px;
+        background-color: #DCE3E8;
     }
 
     .resume {
-        width: 100%;
-        min-height: auto;
-        margin: 0;
-        box-shadow: none;
+        width: 100% !important;
+        max-width: 650px !important;
+        min-height: auto !important;
+        margin: 0 auto !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16) !important;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background-color: var(--white);
     }
 
+    /* Keep Full Navy Header */
     .resume-header {
-        padding: 26px 18px 22px 18px;
+        padding: 22px 14px 18px 14px;
     }
 
     .candidate-name {
-        font-size: 26px;
+        font-size: 24px;
         letter-spacing: 2px;
+        margin-bottom: 5px;
+        line-height: 1.2;
     }
 
     .candidate-subtitle {
-        font-size: 13px;
+        font-size: 11px;
         letter-spacing: 1.2px;
+        color: #D6E0E9;
     }
 
-    /* Flatten into single column with precise specified order */
+    /* Keep Exact Two-Column Resume Grid */
     .resume-body {
-        display: flex;
-        flex-direction: column;
+        display: grid !important;
+        grid-template-columns: 34% 66% !important;
+        flex: 1;
     }
 
-    .sidebar,
-    .main-content {
-        display: contents;
+    /* Left Sidebar */
+    .sidebar {
+        display: flex !important;
+        flex-direction: column !important;
+        background-color: var(--sidebar) !important;
+        padding: 16px 10px !important;
+        gap: 14px !important;
+        border-right: 1px solid var(--border-light) !important;
     }
 
-    /* Mobile Section Order:
-       1. Header (in header tag)
-       2. Photo
-       3. Contact
-       4. Career Objective
-       5. Academic Qualification
-       6. Projects
-       7. Technical Skills
-       8. Soft Skills
-       9. Work Experience
-       10. Hobbies
-       11. Personal Details
-    */
     .profile-photo-wrapper {
-        order: 1;
-        margin: 24px auto 8px auto;
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 4px auto;
+        border: 2px solid var(--navy);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(36, 56, 77, 0.15);
     }
 
-    .contact-section {
-        order: 2;
-        padding: 16px 20px;
-        background-color: var(--sidebar);
+    .sidebar-title {
+        font-size: 12.5px;
+        letter-spacing: 0.8px;
+        padding-bottom: 3px;
+        margin-bottom: 6px;
+        border-bottom: 1.5px solid var(--navy);
     }
 
-    .objective-section {
-        order: 3;
-        padding: 18px 20px;
-        background-color: var(--white);
+    .contact-list {
+        gap: 7px;
     }
 
-    .education-section {
-        order: 4;
-        padding: 18px 20px;
-        background-color: var(--white);
+    .contact-label {
+        font-size: 9px;
+        letter-spacing: 0.5px;
     }
 
-    .projects-section {
-        order: 5;
-        padding: 18px 20px;
-        background-color: var(--white);
+    .contact-link,
+    .contact-text {
+        font-size: 10px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
-    .technical-skills-section {
-        order: 6;
-        padding: 18px 20px;
-        background-color: var(--sidebar);
+    .skills-list {
+        padding-left: 14px;
+        gap: 3.5px;
     }
 
-    .soft-skills-section {
-        order: 7;
-        padding: 18px 20px;
-        background-color: var(--sidebar);
+    .skills-list li {
+        font-size: 10px;
+        line-height: 1.35;
     }
 
-    .experience-section {
-        order: 8;
-        padding: 18px 20px;
-        background-color: var(--white);
+    /* Right Content */
+    .main-content {
+        display: flex !important;
+        flex-direction: column !important;
+        background-color: var(--white) !important;
+        padding: 16px 14px !important;
+        gap: 12px !important;
     }
 
-    .hobbies-section {
-        order: 9;
-        padding: 18px 20px;
-        background-color: var(--sidebar);
-    }
-
-    .personal-section {
-        order: 10;
-        padding: 18px 20px 30px 20px;
-        background-color: var(--white);
-    }
-
-    .sidebar-title,
     .section-title {
-        font-size: 18px;
+        font-size: 13.5px;
+        letter-spacing: 0.8px;
+        padding-bottom: 3px;
+        margin-bottom: 6px;
+        border-bottom: 1.5px solid var(--navy);
     }
 
+    .objective-text {
+        font-size: 10.5px;
+        line-height: 1.48;
+        text-align: justify;
+    }
+
+    .education-entry {
+        gap: 2px;
+    }
+
+    .education-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 6px;
+    }
+
+    .degree-title {
+        font-size: 11.5px;
+        font-weight: 700;
+    }
+
+    .education-date {
+        font-size: 9.5px;
+        white-space: nowrap;
+    }
+
+    .institution-name {
+        font-size: 10.5px;
+    }
+
+    .academic-status {
+        font-size: 9.5px;
+        margin-bottom: 2px;
+    }
+
+    .coursework-text {
+        font-size: 9.5px;
+        line-height: 1.4;
+    }
+
+    /* Projects */
+    .project-entry {
+        margin-bottom: 9px;
+    }
+
+    .project-entry:last-child {
+        margin-bottom: 0;
+    }
+
+    .project-title {
+        font-size: 11px;
+        margin-bottom: 2px;
+    }
+
+    .project-desc {
+        font-size: 9.8px;
+        line-height: 1.4;
+        margin-bottom: 2px;
+        text-align: justify;
+    }
+
+    .project-tech {
+        font-size: 9px;
+        line-height: 1.3;
+    }
+
+    /* Experience */
+    .experience-status {
+        font-size: 11px;
+    }
+
+    .experience-desc {
+        font-size: 9.8px;
+        line-height: 1.4;
+    }
+
+    /* Personal Details */
     .personal-grid {
+        display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 4px;
     }
 
     .personal-row {
-        gap: 12px;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
     }
 
     .personal-label {
-        width: 110px;
+        width: 80px;
+        font-size: 9.5px;
+        flex-shrink: 0;
+    }
+
+    .personal-value {
+        font-size: 9.8px;
+    }
+}
+
+/* Extra Compact Tuning for Small Phones (<= 420px) */
+@media screen and (max-width: 420px) {
+    body {
+        padding: 6px 3px;
+    }
+
+    .resume-header {
+        padding: 18px 10px 14px 10px;
+    }
+
+    .candidate-name {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+
+    .candidate-subtitle {
+        font-size: 9.5px;
+        letter-spacing: 0.8px;
+    }
+
+    .resume-body {
+        grid-template-columns: 35% 65% !important;
+    }
+
+    .sidebar {
+        padding: 12px 6px !important;
+        gap: 11px !important;
+    }
+
+    .profile-photo-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+
+    .sidebar-title {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+
+    .contact-label {
+        font-size: 8px;
+    }
+
+    .contact-link,
+    .contact-text {
+        font-size: 8.8px;
+        line-height: 1.3;
+    }
+
+    .skills-list {
+        padding-left: 11px;
+        gap: 2.5px;
+    }
+
+    .skills-list li {
+        font-size: 8.8px;
+        line-height: 1.3;
+    }
+
+    .main-content {
+        padding: 12px 8px !important;
+        gap: 9px !important;
+    }
+
+    .section-title {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .objective-text {
+        font-size: 9.2px;
+        line-height: 1.38;
+    }
+
+    .degree-title {
+        font-size: 10.2px;
+    }
+
+    .education-date {
+        font-size: 8.5px;
+    }
+
+    .institution-name {
+        font-size: 9.2px;
+    }
+
+    .academic-status {
+        font-size: 8.5px;
+    }
+
+    .coursework-text {
+        font-size: 8.5px;
+        line-height: 1.32;
+    }
+
+    .project-entry {
+        margin-bottom: 7px;
+    }
+
+    .project-title {
+        font-size: 9.8px;
+    }
+
+    .project-desc {
+        font-size: 8.8px;
+        line-height: 1.35;
+    }
+
+    .project-tech {
+        font-size: 8.2px;
+    }
+
+    .experience-status {
+        font-size: 9.8px;
+    }
+
+    .experience-desc {
+        font-size: 8.8px;
+        line-height: 1.35;
+    }
+
+    .personal-label {
+        width: 68px;
+        font-size: 8.5px;
+    }
+
+    .personal-value {
+        font-size: 8.8px;
     }
 }
 
